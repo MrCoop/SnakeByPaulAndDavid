@@ -1,2 +1,50 @@
-# SnakeByPaulAndDavid
- 
+# 🐍 Reinforcement Learning für Snake – Projektbericht
+
+Dieses Projekt entstand im Rahmen der Lehrveranstaltung *"Aktuelle Data Science Entwicklungen"* an der Dualen Hochschule Baden-Württemberg (DHBW) im 6. Semester. Ziel war es, einen Reinforcement-Learning-Agenten zu entwickeln, der das klassische Spiel Snake eigenständig und effizient meistern kann. Als Kernalgorithmus kam Deep Q-Learning (DQN) zum Einsatz. Die Snake-Umgebung wurde dafür eigenständig in Python unter Verwendung von `pygame` erstellt.
+
+Im Fokus stand die Anwendung gelernter Konzepte aus der Vorlesung wie der Markov Decision Process (MDP), Epsilon-greedy-Strategien zur Exploration, Experience Replay und das Training mit einem Target Network. Die Spielumgebung basiert auf einem quadratischen Raster, wobei der Agent (die Schlange) in vier Richtungen navigieren kann, um Nahrung (den Apfel) zu erreichen und dabei nicht mit sich selbst oder den Spielfeldgrenzen zu kollidieren.
+
+Die Implementierung des Agenten basiert auf PyTorch. Das neuronale Netz erhält als Input den flachen Zustand der Umgebung und gibt Q-Werte für alle möglichen Aktionen aus. Der Agent entscheidet sich entweder zufällig (mit Wahrscheinlichkeit ε) oder wählt die beste bekannte Aktion aus dem Netzwerk (mit 1–ε). Der Epsilon-Wert wird dabei schrittweise reduziert, um den Lernprozess vom Explorieren hin zum Exploiteren zu steuern.
+
+Um das Training zu beschleunigen, wurde auf eine visuelle Ausgabe während des Trainings verzichtet. Das grafische Rendern mit `pygame` kann optional zugeschaltet werden, z. B. zur Evaluation eines trainierten Modells. Nach Abschluss des Trainings wird das Modell in einer `.pth`-Datei gespeichert und kann in einem separaten Skript (`play_trained.py`) geladen werden, um den Agenten automatisch spielen zu lassen. Dadurch lässt sich das Modell wiederverwenden, ohne das Training erneut durchlaufen zu müssen.
+
+Die Installation aller notwendigen Bibliotheken erfolgt über die Datei `requirements.txt`. Nach erfolgreicher Installation kann das Training mit dem Skript `train_agent.py` gestartet werden. Das trainierte Modell wird anschließend automatisch gespeichert. Zur Visualisierung der Lernkurve dient eine einfache Matplotlib-Grafik, die den Reward-Verlauf über die Episoden hinweg darstellt.
+
+### Projektstruktur
+
+Das Projekt ist in folgende Komponenten unterteilt:
+
+- `src/snake_env.py` enthält die Snake-Umgebung
+- `src/agent.py` enthält die DQN-Implementierung
+- `train_agent.py` führt den Trainingsprozess aus
+- `play_trained.py` lädt ein trainiertes Modell und spielt es ab
+- `dqn_snake.pth` ist die gespeicherte Modell-Datei
+- `README.md` enthält die Projektdokumentation
+
+### Verwendete Technologien
+
+Für das Projekt kamen folgende Bibliotheken und Technologien zum Einsatz:
+
+- Python 3.10
+- PyTorch
+- pygame
+- numpy
+- matplotlib
+
+### Aufgabenverteilung innerhalb der Gruppe
+
+Das Projekt wurde in einer Zweiergruppe von **David** und **Paul** bearbeitet. Die Aufgabenverteilung orientierte sich an individuellen Stärken und Interessen, wurde aber regelmäßig gemeinsam abgestimmt und abgestimmt umgesetzt.
+
+David übernahm schwerpunktmäßig die Entwicklung der Snake-Umgebung mit `pygame`, sowie die Strukturierung des Codes (Projektaufbau, Dateistruktur, Speicherpfade). Zusätzlich kümmerte er sich um die Modell-Speicherung, das Render-Handling und die Integration der Trainingsvisualisierung.
+
+Paul implementierte den DQN-Agenten inklusive Modellarchitektur, Replay Buffer, Epsilon-gesteuerter Aktionswahl und Target-Netzwerk. Außerdem betreute er das Training, die Hyperparameterwahl und die grafische Auswertung der Trainingsperformance. Die Visualisierung des Lernverlaufs und die Ergebnisinterpretation wurden ebenfalls durch ihn umgesetzt.
+
+Beide Gruppenmitglieder haben sich gemeinsam mit der RL-Theorie, der Erstellung des wissenschaftlichen Berichts und dem Schreiben dieser Dokumentation befasst.
+
+### Ausblick
+
+Ein denkbarer nächster Schritt wäre die Erweiterung des DQN-Ansatzes durch Varianten wie **Double DQN** oder **Dueling DQN**, um stabilere Trainingsverläufe zu erzielen. Ebenso könnte ein CNN-basierter Eingabeansatz mit Bilddaten genutzt werden, um die Umgebung visuell statt als Gittermatrix zu analysieren.
+
+### Lizenz und Weiterverwendung
+
+Dieses Projekt dient ausschließlich akademischen Zwecken im Rahmen der DHBW-Lehre. Alle verwendeten Bibliotheken sind Open Source. Der Quellcode steht unter einer MIT-ähnlichen Lizenz zur Verfügung.
