@@ -41,10 +41,7 @@ Paul implementierte den DQN-Agenten inklusive Modellarchitektur, Replay Buffer, 
 
 Beide Gruppenmitglieder haben sich gemeinsam mit der RL-Theorie, der Erstellung des wissenschaftlichen Berichts und dem Schreiben dieser Dokumentation befasst.
 
-### Ausblick
 
-Ein denkbarer nächster Schritt wäre die Erweiterung des DQN-Ansatzes durch Varianten wie **Double DQN** oder **Dueling DQN**, um stabilere Trainingsverläufe zu erzielen. Ebenso könnte ein CNN-basierter Eingabeansatz mit Bilddaten genutzt werden, um die Umgebung visuell statt als Gittermatrix zu analysieren.
+### Abschließende Hinweis
 
-### Lizenz und Weiterverwendung
-
-Dieses Projekt dient ausschließlich akademischen Zwecken im Rahmen der DHBW-Lehre. Alle verwendeten Bibliotheken sind Open Source. Der Quellcode steht unter einer MIT-ähnlichen Lizenz zur Verfügung.
+Dieses Projekt dient ausschließlich akademischen Zwecken im Rahmen der DHBW-Lehre. Alle verwendeten Bibliotheken sind Open Source.
