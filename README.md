@@ -1,23 +1,25 @@
-# 🐍 Reinforcement Learning für Snake – Projektbericht
+# 🐍 Reinforcement Learning für Snake 
 
 Dieses Projekt entstand im Rahmen der Lehrveranstaltung *"Aktuelle Data Science Entwicklungen"* an der Dualen Hochschule Baden-Württemberg (DHBW) im 6. Semester. Ziel war es, einen Reinforcement-Learning-Agenten zu entwickeln, der das klassische Spiel Snake eigenständig und effizient meistern kann. Als Kernalgorithmus kam Deep Q-Learning (DQN) zum Einsatz. Die Snake-Umgebung wurde dafür eigenständig in Python unter Verwendung von `pygame` erstellt.
 
 Die Implementierung des Agenten basiert auf PyTorch. Das neuronale Netz erhält als Input den flachen Zustand der Umgebung und gibt Q-Werte für alle möglichen Aktionen aus. Der Agent entscheidet sich entweder zufällig (mit Wahrscheinlichkeit ε) oder wählt die beste bekannte Aktion aus dem Netzwerk (mit 1–ε). Der Epsilon-Wert wird dabei schrittweise reduziert, um den Lernprozess vom Explorieren hin zum Exploiteren zu steuern.
 
-Um das Training zu beschleunigen, wurde auf eine visuelle Ausgabe während des Trainings verzichtet. Das grafische Rendern mit `pygame` kann optional zugeschaltet werden, z. B. zur Evaluation eines trainierten Modells. Nach Abschluss des Trainings wird das Modell in einer `.pth`-Datei gespeichert und kann in einem separaten Skript (`play_trained.py`) geladen werden, um den Agenten automatisch spielen zu lassen. Dadurch lässt sich das Modell wiederverwenden, ohne das Training erneut durchlaufen zu müssen.
+Um das Training zu beschleunigen, wurde auf eine visuelle Ausgabe während des Trainings verzichtet. Das grafische Rendern mit `pygame` kann optional zugeschaltet werden, z. B. zur Evaluation eines trainierten Modells. Nach Abschluss des Trainings wird das Modell gespeichert und kann in einem separaten Skript geladen werden, um den Agenten automatisch spielen zu lassen.
 
-Die Installation aller notwendigen Bibliotheken erfolgt über die Datei `requirements.txt`. Nach erfolgreicher Installation kann das Training mit dem Skript `train_agent.py` gestartet werden. Das trainierte Modell wird anschließend automatisch gespeichert. Zur Visualisierung der Lernkurve dient eine einfache Matplotlib-Grafik, die den Reward-Verlauf über die Episoden hinweg darstellt.
+Die Installation aller notwendigen Bibliotheken erfolgt über die Datei `requirements.txt`. Nach erfolgreicher Installation kann das Training mit dem Skript `TrainingLoop.py` gestartet werden. Das trainierte Modell wird anschließend automatisch gespeichert. Zur Visualisierung der Lernkurve dient eine einfache Matplotlib-Grafik, die den Reward-Verlauf über die Episoden hinweg darstellt.
 
-### Projektstruktur
+## Projektstruktur
 
 Das Projekt ist in folgende Komponenten unterteilt:
 
-- `src/snake_env.py` enthält die Snake-Umgebung
-- `src/agent.py` enthält die DQN-Implementierung
-- `train_agent.py` führt den Trainingsprozess aus
-- `play_trained.py` lädt ein trainiertes Modell und spielt es ab
-- `dqn_snake.pth` ist die gespeicherte Modell-Datei
-- `README.md` enthält die Projektdokumentation
+- `snake_env.py` – enthält die Snake-Umgebung  
+- `DQN.py` – definiert das neuronale Netz  
+- `DQNAgent.py` – enthält den DQN-Agenten  
+- `RLAgent.py` – optionaler alternativer RL-Agent  
+- `TrainingLoop.py` – führt den Trainingsprozess aus  
+- `manuel.py` – ermöglicht manuelles Spielen oder Tests  
+- `requirements.txt` – listet benötigte Python-Pakete auf  
+- `README.md` – enthält diese Projektdokumentation
 
 ### Verwendete Technologien
 
